@@ -20,6 +20,9 @@ cat jackie.txt = to see the content in text file.
 # sudo apt install hostapd = for hotspot 
 # sudo netdiscover -i wlan0 = to discover all networks  
 # sudo netdiscover -i wlan0 -r 192.168.133.1/24
+commands to run exe file in kali  => # sudo apt update && sudo apt install wine -y
+				     # wine filename.exe
+
 
  
 
@@ -99,6 +102,7 @@ websites
 --------------
 hacktricks.com =>  for injection values payloads
 github.com/pranay-root/CEH_Practical_Cmds
+gtfobins
 
 
 
@@ -505,4 +509,20 @@ dns.resp.addr == x.x.x.x: Filters DNS responses with a specific IP address.
 ssl.handshake: Filters SSL handshake packets.
 ssl.record.content_type == 23: Filters SSL application data packets.
 ```
+
+USB rubberducky from raspberry pico 
+----------------------------------------
+https://github.com/dbisu/pico-ducky -> go to this page and go down and see release pages and click on that link
+ pico-ducky-v3.1-US.zip  download this zip .
+ now go full down in github page of https://github.com/dbisu/pico-ducky this and Useful links 
+
+Reset Instructions
+ see this click on that  -> download that flash_nake.uf2 file 
+ now extract the old zip file 
+ now first press the button on pico and plugin now cpoy paste the uf2 file to reset . it automatically closes and opens .
+ now open zip file extracted and copy the file of pico_w.uf2 into the pico folder .
+ it automatically reopens .
+ now paste the lib file and all .py files into the pico folder now finally paste the payload.dd .
+ 
+ 
 
